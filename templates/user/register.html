@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register</title>
+</head>
+<body>
+  <h2>Register</h2>
+  {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+  <form method="post" action="/user/register" id="registerForm">
+  <label>Name:</label><input type="text" id="name" name="username" required><br>
+  <label>Email:</label><input type="email" id="email" name="email" required><br>
+  <label>Password:</label><input type="password" id="password" name="password" required><br>
+  <button type="submit">Register</button>
+</form>
+
+  <p>Already have an account? <a href="/user/login">Login here</a></p>
+
+  
+</body>
+</html>

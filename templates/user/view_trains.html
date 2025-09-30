@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Trains</title>
+</head>
+<body>
+    <!-- templates/user/view_trains.html -->
+
+<h2>Trains from {{ fromStationCode }} to {{ toStationCode }}</h2>
+
+{% if trains %}
+    <table border="1">
+        <tr>
+            <th>Train Number</th>
+            <th>Train Name</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Departure</th>
+            <th>Arrival</th>
+            <th>Duration</th>
+            <th>Class</th>
+        </tr>
+        {% for train in trains %}
+        <tr>
+            <td>{{ train.train_number }}</td>
+            <td>{{ train.train_name }}</td>
+            <td>{{ train.from_station_name }}</td>
+            <td>{{ train.to_station_name }}</td>
+            <td>{{ train.from_std }}</td>
+            <td>{{ train.to_sta }}</td>
+            <td>{{ train.duration }}</td>
+            <td>
+                {% for c in train.class_type %}
+                    {{ c }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No trains found.</p>
+{% endif %}
+
+</body>
+</html>

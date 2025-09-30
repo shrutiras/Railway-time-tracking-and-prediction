@@ -1,0 +1,14 @@
+<div>
+  <a href="user_dashboard.html">Home</a>
+  <a href="#" onclick="logout()">Logout</a>
+</div>
+<nav>
+  <a href="/user/login">Login</a> |
+  <a href="/user/register">Register</a>
+</nav>
+<script>
+  function logout() {
+    localStorage.clear();
+    window.location.href = 'login.html';
+  }
+</script>
